@@ -18,7 +18,7 @@ SECRET_KEY = '*g1f$7=sufb4!#(7mdlm7$!+1i+w51&!86+sv9xz2w5zbs$pdo'
 
 ALLOWED_HOSTS = ['*']
 
-DEBUG = False if os.getenv('ENV') == 'prod' else True
+DEBUG = False
 
 
 # Application definition
@@ -42,7 +42,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware'
 ]
 
 ROOT_URLCONF = 'chart_admin.urls'

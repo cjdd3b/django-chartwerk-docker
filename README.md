@@ -34,13 +34,13 @@ docker-compose build
 docker-compose up
 ```
 
-Then just visit `127.0.0.1:8000/chartwerk` and it should be running. If debug mode is off, the app will prompt you for a password. The default username and password are both **admin**.
+Then just visit `127.0.0.1:8000/chartwerk` and it should be running. The app will then prompt you to login in. The default username and password are both **admin**.
 
 Issues and next steps
 ---------------------
 
   - Deploying to ECS requires writing a v2 docker-compose file, plus additional configuration. Would be good to demo that.
-  - There seems to be an issue with the screenshotting functionality (ticket here)
+  - There seems to be an issue with the screenshotting functionality (see tickets)
 
 Questions?
 ----------

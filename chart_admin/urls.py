@@ -19,9 +19,10 @@ from django.contrib import admin
 from django.conf.urls import url, include
 from django.contrib.auth import views as auth_views
 from django.conf.urls.static import static
+from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^chartwerk/', include('chartwerk.urls')),
-    url(r'^accounts/login/$', auth_views.LoginView.as_view()),
+    url(r'^accounts/login/$', auth_views.LoginView.as_view(), name='login'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
