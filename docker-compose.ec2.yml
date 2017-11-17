@@ -13,10 +13,10 @@ services:
   nginx:
     image: nginx:latest
     ports:
-      - "8000:8000"
+      - "80:8000"
     volumes:
       - .:/code
-      - ./config/nginx/local:/etc/nginx/conf.d
+      - ./config/nginx/prod:/etc/nginx/conf.d
       - static:/static
     depends_on:
       - web
