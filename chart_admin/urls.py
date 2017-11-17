@@ -23,6 +23,6 @@ from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^chartwerk/', include('chartwerk.urls')),
+    url(r'^/', include('chartwerk.urls')),
     url(r'^accounts/login/$', auth_views.LoginView.as_view(), name='login'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
