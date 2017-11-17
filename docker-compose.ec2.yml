@@ -4,10 +4,6 @@ volumes:
   static:
 
 services:
-  db:
-    image: postgres
-    ports:
-      - '5432'
   redis:
     image: redis
   nginx:
@@ -23,16 +19,14 @@ services:
   web:
     build: .
     env_file:
-      - ./config/env/local.env
-    command: ["./scripts/wait-for-it.sh", "db:5432", "--", "./scripts/bootstrap.sh"]
+      - ./config/env/prod.env
+    command: ["./scripts/bootstrap.sh"]
     volumes:
       - .:/code
       - static:/static
     expose:
       - "8000"
     links:
-      - db
       - redis
     depends_on:
-      - db
       - redis
