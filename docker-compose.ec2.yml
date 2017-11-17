@@ -1,0 +1,38 @@
+version: '3'
+
+volumes:
+  static:
+
+services:
+  db:
+    image: postgres
+    ports:
+      - '5432'
+  redis:
+    image: redis
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/code
+      - ./config/nginx/local:/etc/nginx/conf.d
+      - static:/static
+    depends_on:
+      - web
+  web:
+    build: .
+    env_file:
+      - ./config/env/local.env
+    command: ["./scripts/wait-for-it.sh", "db:5432", "--", "./scripts/bootstrap.sh"]
+    volumes:
+      - .:/code
+      - static:/static
+    expose:
+      - "8000"
+    links:
+      - db
+      - redis
+    depends_on:
+      - db
+      - redis
