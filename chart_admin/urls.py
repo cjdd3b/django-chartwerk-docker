@@ -25,4 +25,4 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^chartwerk/', include('chartwerk.urls')),
     url(r'^accounts/login/$', auth_views.LoginView.as_view(), name='login'),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]

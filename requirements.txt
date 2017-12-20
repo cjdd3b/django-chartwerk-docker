@@ -1,4 +1,5 @@
-django-chartwerk==0.5.16
+django==1.11
+django-chartwerk==0.5.17
 psycopg2==2.7.3.1
 celery==4.1.0
 redis==2.10.6

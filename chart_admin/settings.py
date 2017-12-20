@@ -127,6 +127,22 @@ CHARTWERK_AWS_BUCKET = os.getenv('CHARTWERK_AWS_BUCKET', 'chartwerk')
 CHARTWERK_AWS_ACCESS_KEY_ID = os.getenv('CHARTWERK_AWS_ACCESS_KEY_ID', 'YOUR_ACCESS_KEY')
 CHARTWERK_AWS_SECRET_ACCESS_KEY = os.getenv('CHARTWERK_AWS_SECRET_ACCESS_KEY', 'YOUR_SECRET_KEY')
 
+CHARTWERK_EMBED_TEMPLATE = """
+<div
+  id="chartwerk_{{id}}"
+  class="chartwerk"
+  data-id="{{id}}"
+  data-dimensions="{{dimensions|safe}}"
+  data-size="{{size}}"
+  data-src="{{chart_path}}"
+></div>
+<script src="{{embed_script}}"></script>
+"""
+
+CHARTWERK_EMBED_TEMPLATE_CONTEXT = lambda chart: {
+    'chart_path': CHARTWERK_DOMAIN + '/charts/',
+    'embed_script': CHARTWERK_DOMAIN + 'static/chartwerk/js/main-embed.bundle.js',
+}
 
 # Celery. Connects to containerized Redis, but could change these for hosted Redis.
 # https://github.com/pahaz/docker-compose-django-postgresql-redis-example/blob/master/sources/_project_/settings.py
